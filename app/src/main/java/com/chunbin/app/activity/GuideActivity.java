@@ -20,6 +20,8 @@ import com.chunbin.app.R;
 import com.chunbin.app.utils.CacheUtils;
 import com.chunbin.app.utils.DensityUtil;
 
+import net.tsz.afinal.FinalBitmap;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -42,20 +44,29 @@ public class GuideActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_guide);
 
-
+        FinalBitmap fb = FinalBitmap.create(this);
+        //fb.configLoadingImage()
+        //fb.display();
         initView();
         int[] ids = new int[]{
                 R.drawable.guide_1,
                 R.drawable.guide_2,
                 R.drawable.guide_3
         };
+        String[] idsStr = new String[]{
+                "http://img18.3lian.com/d/file/201709/21/85bb81c506870a1a4528509efa12bbfd.jpg",
+                "http://img18.3lian.com/d/file/201709/21/c7dafdcbcef6f1afef6573b5501782bb.jpg",
+                "http://img18.3lian.com/d/file/201709/21/08b68ff44b467ade1fa0a8e7bc148c86.jpg"
+        };
         int widthdpi =DensityUtil.dip2px(this,10);
 
         imageViews = new ArrayList<ImageView>();
         for (int i = 0; i < ids.length; i++) {
             ImageView imageView = new ImageView(this);
+            imageView.setScaleType(ImageView.ScaleType. CENTER_CROP);
+            fb.display(imageView,idsStr[i]);
             //设置背景
-            imageView.setBackgroundResource(ids[i]);
+            //imageView.setBackgroundResource(ids[i]);
             //添加集合
             imageViews.add(imageView);
             //创建点
