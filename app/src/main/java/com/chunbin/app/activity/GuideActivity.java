@@ -42,6 +42,7 @@ public class GuideActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_guide);
 
+
         initView();
         int[] ids = new int[]{
                 R.drawable.guide_1,

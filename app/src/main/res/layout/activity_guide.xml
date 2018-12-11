@@ -16,6 +16,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
         android:layout_margin="80dp"
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
@@ -26,8 +27,9 @@
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="50dp"
         android:layout_alignParentBottom="true"
-        android:layout_centerVertical="true">
+        android:layout_centerHorizontal="true">
 
         <LinearLayout
             android:id="@+id/ll_point_group"
