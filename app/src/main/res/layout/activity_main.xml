@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/fl_main_content"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:id="@+id/fl_main_content"
+    android:background="@android:color/white">
 
-    <TextView
+    <!--<TextView
         android:id="@+id/text_data"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -29,6 +30,6 @@
     <Button
         android:onClick="get_moive_data"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content" />-->
 
-</LinearLayout>
+</FrameLayout>

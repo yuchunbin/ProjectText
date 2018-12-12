@@ -1,14 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".fragment.ContentFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <com.chunbin.app.view.NoScrollViewPager
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="0dp"
+        android:id="@+id/viewpager"
+        android:layout_weight="1" />
 
-</FrameLayout>
+    <RadioGroup
+        android:id="@+id/rg_main"
+        android:background="@drawable/bottom_tab_bg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/rb_home"
+            android:gravity="center"
+            android:text="首页"
+            style="@style/bottom_tag_style"/>
+        <RadioButton
+            android:id="@+id/rb_newscenter"
+            android:gravity="center"
+            android:text="热点"
+            style="@style/bottom_tag_style"/>
+        <RadioButton
+            android:id="@+id/rb_smartservice"
+            android:gravity="center"
+            android:text="VIP"
+            style="@style/bottom_tag_style"/>
+        <RadioButton
+            android:id="@+id/rb_govaffair"
+            android:gravity="center"
+            android:text="doki"
+            style="@style/bottom_tag_style"/>
+        <RadioButton
+            android:id="@+id/rb_setting"
+            android:gravity="center"
+            android:text="我的"
+            style="@style/bottom_tag_style"/>
+
+    </RadioGroup>
+
+</LinearLayout>

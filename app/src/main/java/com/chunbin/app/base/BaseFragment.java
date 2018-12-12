@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 
 public abstract class BaseFragment extends Fragment {
 
-    public Activity contenx;
+    public Activity context;
 
     /**
      * 当fragment被创建的时候回调这个方法
@@ -20,7 +20,7 @@ public abstract class BaseFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        contenx = getActivity();
+        context = getActivity();
     }
 
     /**
