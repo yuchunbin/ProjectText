@@ -34,6 +34,7 @@ public class SmartServicePagerAdapter extends RecyclerView.Adapter<SmartServiceP
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View itemView = View.inflate(context, R.layout.trailers_view_items,null);
+        itemView.setSelected(true);
         return new ViewHolder(itemView);
     }
 
@@ -51,11 +52,6 @@ public class SmartServicePagerAdapter extends RecyclerView.Adapter<SmartServiceP
         holder.trailers_rating.setText(trailers.getRating().toString());
         holder.trailers_summary.setText(trailers.getSummary().toString());
         holder.trailers_type.setText(trailers.getType().toString());
-        Log.e(TAG,"trailers.getMovieName() = " + trailers.getMovieName().toString());
-        Log.e(TAG,"trailers.getRating() = " + trailers.getRating().toString());
-        Log.e(TAG,"trailers.getSummary() = " + trailers.getSummary().toString());
-        Log.e(TAG,"trailers.getType().toString() = " + trailers.getType().toString());
-        Log.e(TAG,"trailers.getCoverImg() = " + trailers.getCoverImg().toString());
         holder.play_now.setOnClickListener(new MovieOnClickListenrt());
         holder.cache.setOnClickListener(new MovieOnClickListenrt());
 
@@ -109,6 +105,7 @@ public class SmartServicePagerAdapter extends RecyclerView.Adapter<SmartServiceP
                     Toast.makeText(context, "缓存", Toast.LENGTH_SHORT).show();
                     break;
                 case R.id.play_now:
+
                     Toast.makeText(context, "播放", Toast.LENGTH_SHORT).show();
                     break;
             }

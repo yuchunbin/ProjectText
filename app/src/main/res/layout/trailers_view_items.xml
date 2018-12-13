@@ -1,26 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/shape_small_label">
+
+
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="230dp"
         android:orientation="horizontal">
 
-        <ImageView
+        <com.chunbin.app.view.RoundImageView
             android:id="@+id/trailers_cover_Img"
-            android:layout_width="wrap_content"
-            android:layout_weight="5"
-            android:background="@drawable/bottom_tab_bg"
-            android:layout_height="wrap_content" />
-        <LinearLayout
-            android:layout_weight="1"
+            android:layout_width="150dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/shape_small_label" />
+        <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
             android:orientation="vertical">
 
             <LinearLayout
+                android:id="@+id/linear_layout_1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
@@ -39,6 +46,8 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/linear_layout_2"
+                android:layout_below="@id/linear_layout_1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
@@ -54,6 +63,8 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/linear_layout_3"
+                android:layout_below="@id/linear_layout_2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
@@ -69,6 +80,8 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/linear_layout_4"
+                android:layout_below="@id/linear_layout_3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
@@ -82,10 +95,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
             </LinearLayout>
-
             <RelativeLayout
+                android:id="@+id/linear_layout_5"
+                android:layout_below="@id/linear_layout_4"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="match_parent"
+
+                android:layout_marginBottom="10dp">
 
                 <Button
                     android:id="@+id/play_now"
@@ -103,7 +119,7 @@
                     android:text="缓存"/>
             </RelativeLayout>
 
-        </LinearLayout>
+        </RelativeLayout>
 
     </LinearLayout>
 

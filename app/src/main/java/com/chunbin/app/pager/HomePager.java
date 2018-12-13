@@ -14,20 +14,11 @@ import android.widget.Toast;
 import com.chunbin.app.R;
 import com.chunbin.app.adapter.SmartServicePagerAdapter;
 import com.chunbin.app.base.BasePager;
-import com.chunbin.app.entity.FilmEntity;
 import com.chunbin.app.entity.Trailers;
-import com.chunbin.app.utils.CacheUtils;
 import com.chunbin.app.utils.GsonUtil;
+import com.chunbin.app.utils.SpacesItemDecoration;
 import com.cjj.MaterialRefreshLayout;
 import com.cjj.MaterialRefreshListener;
-import com.google.gson.Gson;
-
-import net.tsz.afinal.FinalHttp;
-import net.tsz.afinal.http.AjaxCallBack;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.io.IOException;
 import java.net.HttpURLConnection;
@@ -88,6 +79,11 @@ public class HomePager extends BasePager {
     private int totalPage;
 
     /**
+     * 每行间距
+     */
+    private int space = 10;
+
+    /**
      * 数据列表
      */
     private ArrayList<Trailers> datas = new ArrayList<Trailers>(); ;
@@ -108,9 +104,7 @@ public class HomePager extends BasePager {
         refresh_layout = view.findViewById(R.id.refresh_layout);
         recycler_view = view.findViewById(R.id.recycler_view);
         pd_loading = view.findViewById(R.id.pd_loading);
-        recycler_view.setLayoutManager(new LinearLayoutManager(context,LinearLayoutManager.VERTICAL,false));
-        adapter = new SmartServicePagerAdapter(context,datas);
-        recycler_view.setAdapter(adapter);
+
         if (fl_content != null) {
             fl_content.removeAllViews();
         }
@@ -235,7 +229,10 @@ public class HomePager extends BasePager {
         switch (state){
             case STATE_NORMAL:
                 Log.e(TAG,"datas.size() = "+datas.size());
-
+                recycler_view.setLayoutManager(new LinearLayoutManager(context,LinearLayoutManager.VERTICAL,false));
+                adapter = new SmartServicePagerAdapter(context,datas);
+                recycler_view.addItemDecoration(new SpacesItemDecoration(space));
+                recycler_view.setAdapter(adapter);
 
                 break;
             case STATE_REFRES:
