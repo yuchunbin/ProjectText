@@ -1,20 +1,50 @@
 package com.chunbin.app.entity;
 
 import java.util.List;
+import java.util.Map;
 
 public class Trailers {
 
-    private long id;
+
+    //id
+    private Long id;
+    //电影名字
     private String movieName;
+    //封面图像
     private String coverImg;
-    private long movieId;
+    //电影ID
+    private Long movieId;
+    //网址
     private String url;
+    //高网址
     private String hightUrl;
+    //视频标题
     private String videoTitle;
-    private int videoLength;
-    private int rating;
-    private List<String> type;
+    //视频长度
+    private Integer videoLength;
+    //评级
+    private String rating;
+    //类型
+    private String[] type;
+    //总结
     private String summary;
+
+    @Override
+    public String toString() {
+        return "Wares{" +
+                "id=" + id +
+                ", movieName='" + movieName + '\'' +
+                ", coverImg='" + coverImg + '\'' +
+                ", movieId='" + movieId + '\'' +
+                ", url='" + url + '\'' +
+                ", hightUrl='" + hightUrl + '\'' +
+                ", videoTitle='" + videoTitle + '\'' +
+                ", videoLength='" + videoLength + '\'' +
+                ", rating='" + rating + '\'' +
+                ", type='" + type + '\'' +
+                ", summary='" + summary+
+                '}';
+    }
     public void setId(long id) {
         this.id = id;
     }
@@ -71,17 +101,17 @@ public class Trailers {
         return videoLength;
     }
 
-    public void setRating(int rating) {
+    public void setRating(String rating) {
         this.rating = rating;
     }
-    public int getRating() {
+    public String getRating() {
         return rating;
     }
 
-    public void setType(List<String> type) {
+    public void setType( String[] type) {
         this.type = type;
     }
-    public List<String> getType() {
+    public  String [] getType() {
         return type;
     }
 

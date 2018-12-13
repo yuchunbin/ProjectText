@@ -15,6 +15,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.chunbin.app.MainActivity;
 import com.chunbin.app.R;
 import com.chunbin.app.utils.CacheUtils;
@@ -64,7 +66,13 @@ public class GuideActivity extends AppCompatActivity {
         for (int i = 0; i < ids.length; i++) {
             ImageView imageView = new ImageView(this);
             imageView.setScaleType(ImageView.ScaleType. CENTER_CROP);
-            fb.display(imageView,idsStr[i]);
+            //fb.display(imageView,idsStr[i]);
+            Glide.with(this)
+                    .load(idsStr[i])
+                    .diskCacheStrategy(DiskCacheStrategy.ALL)
+                    .placeholder(ids[i])
+                    .error(ids[i])
+                    .into(imageView);
             //设置背景
             //imageView.setBackgroundResource(ids[i]);
             //添加集合
