@@ -1,6 +1,8 @@
 package com.chunbin.app.adapter;
 
 import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -14,6 +16,7 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.chunbin.app.R;
+import com.chunbin.app.activity.PlayVideoActivity;
 import com.chunbin.app.entity.Trailers;
 
 import java.util.ArrayList;
@@ -23,6 +26,10 @@ public class SmartServicePagerAdapter extends RecyclerView.Adapter<SmartServiceP
     private Context context;
     private ArrayList<Trailers> datas;
     private String TAG ="SmartServicePagerAdapter";
+
+    public final static String VIDEO_ACTIVITY_KEY = "VIDEO_ACTIVITY_KEY";
+    public final static String VIDEO_ACTIVITY_URL="VIDEO_ACTIVITY_URL";
+    public final static String VIDEO_ACTIVITY_NAME="VIDEO_ACTIVITY_NAME";
 
 
     public SmartServicePagerAdapter(Context context, ArrayList<Trailers> datas) {
@@ -37,10 +44,10 @@ public class SmartServicePagerAdapter extends RecyclerView.Adapter<SmartServiceP
         itemView.setSelected(true);
         return new ViewHolder(itemView);
     }
-
+    private Trailers trailers;
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        Trailers trailers = datas.get(position);
+        trailers = datas.get(position);
         Glide.with(context)
                 .load(trailers.getCoverImg().toString())
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
@@ -100,15 +107,21 @@ public class SmartServicePagerAdapter extends RecyclerView.Adapter<SmartServiceP
     private class MovieOnClickListenrt implements View.OnClickListener {
         @Override
         public void onClick(View view) {
+            Intent intent = null;
+            Bundle bundle = new Bundle();
             switch (view.getId()){
                 case R.id.cache:
+
                     Toast.makeText(context, "缓存", Toast.LENGTH_SHORT).show();
                     break;
                 case R.id.play_now:
-
-                    Toast.makeText(context, "播放", Toast.LENGTH_SHORT).show();
+                    bundle.putString(VIDEO_ACTIVITY_URL,trailers.getUrl());
+                    bundle.putString(VIDEO_ACTIVITY_NAME,trailers.getMovieName());
+                    intent = new Intent(context, PlayVideoActivity.class);
+                    intent.putExtra(VIDEO_ACTIVITY_KEY,bundle);
                     break;
             }
+            context.startActivity(intent);
         }
     }
 }

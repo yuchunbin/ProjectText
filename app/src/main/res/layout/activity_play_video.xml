@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activity.PlayVideoActivity">
+    <!--标题栏-titlebar-->
+    <include layout="@layout/titlebar"/>
+    <FrameLayout
+        android:id="@+id/video_container"
+        android:layout_width="match_parent"
+        android:layout_height="240dp">
+
+        <com.chunbin.app.utils.FullVideoView
+            android:id="@+id/video_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <SeekBar
+                android:id="@+id/brightness_display"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp"
+                android:visibility="gone" />
+
+            <CheckBox
+                android:id="@+id/pause_play"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:background="@drawable/pause_play_selector"
+                android:button="@null"
+                android:gravity="center" />
+
+            <LinearLayout
+                android:id="@+id/bottem_controller"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_gravity="bottom"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/current_position"
+                    android:layout_width="50dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="5dp"
+                    android:gravity="center"
+                    android:text="00:00"
+                    android:textColor="#FFFFFF" />
+
+                <SeekBar
+                    android:id="@+id/progress_controller"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="1" />
+
+                <TextView
+                    android:id="@+id/duration"
+                    android:layout_width="50dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="29:59"
+                    android:textColor="#FFFFFF" />
+
+                <CheckBox
+                    android:id="@+id/full_screen_controller"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/full_screen_selector"
+                    android:button="@null"
+                    android:gravity="center" />
+            </LinearLayout>
+
+        </FrameLayout>
+
+    </FrameLayout>
+</LinearLayout>
